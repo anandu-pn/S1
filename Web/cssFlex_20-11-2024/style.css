@@ -1,0 +1,48 @@
+.container
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.welcome{
+background-color: brown;
+flex: 20%;
+}
+.image{
+    flex: 50%;
+    width: 80%;
+    height: 300px;
+    justify-content: center;
+    background-image: url("1.jpg");
+    animation-name: example;
+    animation-duration: 8s;
+  }
+  
+  @keyframes example {
+    0%  {background-image:url("1.jpg");}
+    25% {background-image: url("2.jpg");}
+    50%  {background-image:url("1.jpg");}
+    75% {background-image: url("2.jpg");}
+    100% {background-image: url("1.jpg");}
+  }
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex: 30%;
+    border: 2px solid black;
+    justify-content: center;
+    padding: 4px;
+}
+.left{
+    
+    flex: 25%;
+    text-align: left;
+    background-color: antiquewhite;
+    
+}
+.right{
+    flex: 75%;
+    text-align: left;
+    background-color: beige;
+}
