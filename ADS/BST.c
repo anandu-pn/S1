@@ -112,17 +112,32 @@ void Delete(struct node ** root){
     }
     //if only have left child
     else if(current->left!=NULL && current->right==NULL){
+        if(prv->data>z){
+            prv->left=current->left;
+        }
+        else if(prv->data<z){
+            prv->right=current->left;
+        }
 
     }
     //if only have right sub tree
     else if(current->left==NULL && current->right!=NULL){
+        if(prv->data>z){
+            prv->left=current->right;
+        }
+        else if(prv->data<z){
+            prv->right=current->right;
+        }
         
     }
     //if no child
     else if(current->left==NULL && current->right==NULL){
         free(current);
         if(prv->data>z){
-
+            prv->left=NULL;
+        }
+        else if(prv->data<z){
+            prv->right=NULL;
         }
     }
 
