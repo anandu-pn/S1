@@ -1,7 +1,3 @@
-Sure! Here's a sample README for your S1 College Lab Works GitHub repository, including the GPLv3 license and the three lab subjects: ADS, WEB, and Python.
-
----
-
 # S1 College Lab Works
 
 Welcome to the S1 College Lab Works repository! This repository contains all the lab assignments, projects, and resources for the first semester of college. It is designed to help students keep track of their work, collaborate with peers, and access important materials.
@@ -40,7 +36,7 @@ To get started with this repository, follow these steps:
 
 ## Lab Subjects
 
-### ADS (Algorithm and Data Structures)
+### ADS (Advanced Data Structures)
 
 This section contains lab assignments and projects related to algorithms and data structures. Each assignment folder includes:
 
@@ -66,7 +62,7 @@ This section contains lab assignments and projects related to Python programming
 
 ## Resources
 
-This section includes various resources that are helpful for completing the lab assignments and projects. It may include:
+This section includes various resources that are helpful for completing the lab assignments and projects. It may include in future:
 
 - Lecture notes.
 - Reference materials.
