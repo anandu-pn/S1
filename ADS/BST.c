@@ -23,13 +23,23 @@ void createNode(struct node ** root){
     else{
         //to find parent node of that node
         while(current!=NULL){
+            //goint to the right node
             if(current->data<z){
                 prv=current;
                 current=current->right;
             }
+            //going to left node
             else if(current->data>z){
                 prv=current;
                 current=current->left;
+            }
+            //if already present
+            else if(current->data==z){
+                printf("\n%d is already present in BST!",z);
+                printf("\n Enter the value of node:");
+                scanf("%d",&z);
+                temp->data=z;
+                continue;
             }
         }
         //to create node to the right of parent node
@@ -75,8 +85,45 @@ void Delete(struct node ** root){
     struct node * current=*root;
     printf("Enter the values to be deleted");
     scanf("%d",&z);
+    struct node * prv=NULL;
     if(current->data==z){
         printf("\nNode is to be deleted");
+    }
+    while(current->data!=z && current!=NULL){
+                        if(current->data<z){
+                prv=current;
+                current=current->right;
+            }
+            //going to left node
+            else if(current->data>z){
+                prv=current;
+                current=current->left;
+            }
+            else if(current->data!=z){
+                break;
+            }
+    }
+    if(current==NULL){
+        printf("/n%d not found",z);
+    }
+    //if deleting node has two children
+    else if(current->left!=NULL && current->right!=NULL){
+        
+    }
+    //if only have left child
+    else if(current->left!=NULL && current->right==NULL){
+
+    }
+    //if only have right sub tree
+    else if(current->left==NULL && current->right!=NULL){
+        
+    }
+    //if no child
+    else if(current->left==NULL && current->right==NULL){
+        free(current);
+        if(prv->data>z){
+
+        }
     }
 
 }
@@ -109,11 +156,11 @@ void display(struct node * root){
         printf("\nTree is empty");
     }
     struct node * Root=root;
-    printf("\nPreOrder traversel");
+    printf("\nPreOrder traversel: ");
     preOrder(Root);
-    printf("\ninOrder traversel");
+    printf("\ninOrder traversel: ");
     inOrder(Root);
-    printf("\nPostOrder traversel");
+    printf("\nPostOrder traversel: ");
     postOrder(Root);
 }
 
@@ -160,3 +207,23 @@ int main(){
         }
     }
 }
+/*Deleting a node from a Binary Search Tree (BST) involves three main scenarios:
+
+1. **Node with No Children (Leaf Node)**:
+   - Simply remove the node from the tree.
+
+2. **Node with One Child**:
+   - Remove the node and replace it with its child.
+
+3. **Node with Two Children**:
+   - Find the node's in-order successor (the smallest node in its right subtree) or in-order predecessor (the largest node in its left subtree).
+   - Replace the node's value with the in-order successor's (or predecessor's) value.
+   - Delete the in-order successor (or predecessor) node, which will now be a simpler case (either a leaf node or a node with one child).
+
+### Steps for Deleting a Node with Two Children:
+1. **Find the Node**: Locate the node to be deleted.
+2. **Find the In-Order Successor**: This is the smallest node in the right subtree.
+3. **Replace the Node's Value**: Replace the value of the node to be deleted with the in-order successor's value.
+4. **Delete the In-Order Successor**: Since the in-order successor is guaranteed to have at most one child, this step is simpler.
+
+By following these steps, you can effectively delete a node from a BST while maintaining its properties. If you need further clarification or have any other questions, feel free to ask!*/
