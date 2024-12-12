@@ -7,7 +7,7 @@ Welcome to the S1 College Lab Works repository! This repository contains all the
 - [Introduction](#introduction)
 - [Getting Started](#getting-started)
 - [Lab Subjects](#lab-subjects)
-  - [ADS (Algorithm and Data Structures)](#ads-algorithm-and-data-structures)
+  - [ADS (Advanced Data Structures)](#ads-advanced-data-structures)
   - [WEB (Web Development)](#web-web-development)
   - [Python Programming](#python-programming)
 - [Resources](#resources)
