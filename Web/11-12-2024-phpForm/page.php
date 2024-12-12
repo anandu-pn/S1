@@ -10,15 +10,17 @@
 </body>
 </html>
 <?php
+//this page will print data entered in the previous page in table
 require 'connect.php';
 session_start();
 if(isset($_SESSION['name'])){
     $name=$_SESSION['name'];
+    //this query fetch for row with name from db
     $data = "SELECT * FROM datadb WHERE name='$name'"; 
     $q = mysqli_query($conn, $data); 
     // Check if there are any results 
     if (mysqli_num_rows($q) > 0) { 
-        // Output data of each row 
+        // Output data of each row and print corresponding values of columns in each row
         while ($row = mysqli_fetch_assoc($q)) { 
             echo "ID:   {$row["id"]}   - Name: {$row["name"]}  - Phone: . {$row["phone"]} <br><table border='1px'>
         <tr>
