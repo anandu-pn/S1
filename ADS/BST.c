@@ -5,8 +5,6 @@ struct node{
     struct node * left;
     struct node * right;
 };
-//bug 
-//when same element is entered progran stops fix it
 void createNode(struct node ** root){
     struct node * temp=(struct node *)malloc(sizeof(struct node));
     struct node * current= *root;
@@ -55,35 +53,37 @@ void createNode(struct node ** root){
 
 void search(struct node ** root){
     struct node * current = *root;
-    int i,z;
+    int z;
+    if(*root==NULL){
+        printf("\ntree is empty");
+        return;
+    }
     printf("\n Enter the value of node to search:");
     scanf("%d",&z);
-    while(current->data!=z && current!=NULL){
-        if(current->data==z){
-            printf("\n Node found at root ptr:%d",current);
+    while(current!=NULL && current->data!=z){
+        if(current->data<z){
+            current=current->right;
         }
-        else{
-            if(current->data<z){
-                current=current->right;
-            }
-            else if (current->data>z){
-                current=current->left;
-            }
+        else if (current->data>z){
+            current=current->left;
         }
-        
     }
     if(current==NULL){
-        printf("\n Node found not found");
+        printf("\n %d Node found not found",z);
     }
     //return pointer if node is found
-    else if(current!=NULL){
-        printf("\n Node found at ptr:%d",current);
+    else{
+        printf("\n %d found at ptr:%d",z,current);
     }
 }
 void Delete(struct node ** root){
     int z;
     struct node * current=*root;
-    printf("Enter the values to be deleted: ");
+    if(*root==NULL){
+        printf("\nTree is empty!");
+        return;
+    }
+    printf("\nEnter the values to be deleted: ");
     scanf("%d",&z);
     struct node * prv=NULL;
     while( current!=NULL && current->data!=z){
@@ -117,20 +117,25 @@ void Delete(struct node ** root){
             if (succePrv != current) { 
                 succePrv->left = successor->right; 
                 } 
+            //in else condition succeprv is current that is root node is being deleted
             else { 
                 succePrv->right = successor->right; 
                 }
-            if(successor->right!=NULL){
+            /*if(successor->right!=NULL){
                 succePrv->left=successor->right;
             }
             else{
                 succePrv->left=NULL;
-            }
+            }*/
             free(successor);
         }
         //if only have left child
         else if(current->left!=NULL && current->right==NULL){
-            if(prv->data>z){
+            //this if condition check if root node only have one left child
+            if(prv==NULL){
+                *root=current->left;
+            }
+            else if(prv->data>z){
                 prv->left=current->left;
             }
             else if(prv->data<z){
@@ -140,8 +145,10 @@ void Delete(struct node ** root){
         }
         //if only have right sub tree
         else if(current->left==NULL && current->right!=NULL){
-            //deleting root node 
-            if(prv->data>z){
+            if(prv==NULL){
+                *root=current->right;
+            }
+            else if(prv->data>z){
                 prv->left=current->right;
             }
             else if(prv->data<z){
@@ -151,8 +158,11 @@ void Delete(struct node ** root){
         }
         //if no child
         else if(current->left==NULL && current->right==NULL){
-
-            if(prv->data>z){
+            //if only root left to delete
+            if(prv==NULL){
+                *root=NULL;
+            }
+            else if(prv->data>z){
                 prv->left=NULL;
             }
             else if(prv->data<z){
@@ -199,7 +209,6 @@ void display(struct node * root){
     printf("\nPostOrder traversel: ");
     postOrder(Root);
 }
-
 int main(){
     struct node * root=NULL;
     int i,n,choice;
@@ -224,15 +233,12 @@ int main(){
             case(4):
                 search(&root);
                 break;
-            case(5):
-                //traverse(&root);
-                break;
-            case(6):
+          /*case(6):
                 //min(&root);
                 break;
             case(7):
                 //max(&root);
-                break;
+                break;*/
             case(8):
                 printf("\nProgram existed");
                 return 0;
