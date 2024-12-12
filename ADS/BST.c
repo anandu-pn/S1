@@ -83,14 +83,12 @@ void search(struct node ** root){
 void Delete(struct node ** root){
     int z;
     struct node * current=*root;
-    printf("Enter the values to be deleted");
+    printf("Enter the values to be deleted: ");
     scanf("%d",&z);
     struct node * prv=NULL;
-    if(current->data==z){
-        printf("\nNode is to be deleted");
-    }
-    while(current->data!=z && current!=NULL){
-                        if(current->data<z){
+    while( current!=NULL && current->data!=z){
+            //going to right node
+            if(current->data<z){
                 prv=current;
                 current=current->right;
             }
@@ -99,49 +97,72 @@ void Delete(struct node ** root){
                 prv=current;
                 current=current->left;
             }
-            else if(current->data!=z){
-                break;
-            }
     }
     if(current==NULL){
-        printf("/n%d not found",z);
+        printf("\n%d not found",z);
     }
-    //if deleting node has two children
-    else if(current->left!=NULL && current->right!=NULL){
-        
-    }
-    //if only have left child
-    else if(current->left!=NULL && current->right==NULL){
-        if(prv->data>z){
-            prv->left=current->left;
+    else{
+        //if deleting node has two children
+        if(current->left!=NULL && current->right!=NULL){
+            //using inorder successor
+            struct node * successor=(current->right);
+            struct node * succePrv=current;
+            while(successor->left!=NULL){
+                succePrv=successor;
+                successor=successor->left;
+            }
+            //assingning values of successor to be the previous node to deleted
+            current->data=successor->data;
+            //following if else condition is ai generated to check for root node del
+            if (succePrv != current) { 
+                succePrv->left = successor->right; 
+                } 
+            else { 
+                succePrv->right = successor->right; 
+                }
+            if(successor->right!=NULL){
+                succePrv->left=successor->right;
+            }
+            else{
+                succePrv->left=NULL;
+            }
+            free(successor);
         }
-        else if(prv->data<z){
-            prv->right=current->left;
+        //if only have left child
+        else if(current->left!=NULL && current->right==NULL){
+            if(prv->data>z){
+                prv->left=current->left;
+            }
+            else if(prv->data<z){
+                prv->right=current->left;
+            }
+            free(current);
         }
+        //if only have right sub tree
+        else if(current->left==NULL && current->right!=NULL){
+            //deleting root node 
+            if(prv->data>z){
+                prv->left=current->right;
+            }
+            else if(prv->data<z){
+                prv->right=current->right;
+            }
+            free(current);
+        }
+        //if no child
+        else if(current->left==NULL && current->right==NULL){
 
+            if(prv->data>z){
+                prv->left=NULL;
+            }
+            else if(prv->data<z){
+                prv->right=NULL;
+            }
+            free(current);
+        }
+        printf("\n%d is successfully deleted",z);
     }
-    //if only have right sub tree
-    else if(current->left==NULL && current->right!=NULL){
-        if(prv->data>z){
-            prv->left=current->right;
-        }
-        else if(prv->data<z){
-            prv->right=current->right;
-        }
-        
-    }
-    //if no child
-    else if(current->left==NULL && current->right==NULL){
-        free(current);
-        if(prv->data>z){
-            prv->left=NULL;
-        }
-        else if(prv->data<z){
-            prv->right=NULL;
-        }
-    }
-
-}
+}   
 void preOrder(struct node * root){
     if (root==NULL){
         return;
@@ -222,23 +243,3 @@ int main(){
         }
     }
 }
-/*Deleting a node from a Binary Search Tree (BST) involves three main scenarios:
-
-1. **Node with No Children (Leaf Node)**:
-   - Simply remove the node from the tree.
-
-2. **Node with One Child**:
-   - Remove the node and replace it with its child.
-
-3. **Node with Two Children**:
-   - Find the node's in-order successor (the smallest node in its right subtree) or in-order predecessor (the largest node in its left subtree).
-   - Replace the node's value with the in-order successor's (or predecessor's) value.
-   - Delete the in-order successor (or predecessor) node, which will now be a simpler case (either a leaf node or a node with one child).
-
-### Steps for Deleting a Node with Two Children:
-1. **Find the Node**: Locate the node to be deleted.
-2. **Find the In-Order Successor**: This is the smallest node in the right subtree.
-3. **Replace the Node's Value**: Replace the value of the node to be deleted with the in-order successor's value.
-4. **Delete the In-Order Successor**: Since the in-order successor is guaranteed to have at most one child, this step is simpler.
-
-By following these steps, you can effectively delete a node from a BST while maintaining its properties. If you need further clarification or have any other questions, feel free to ask!*/
