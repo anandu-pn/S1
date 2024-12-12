@@ -28,7 +28,7 @@ To get started with this repository, follow these steps:
    ```
 2. **Navigate to the repository directory:**
    ```bash
-   cd s1-college-lab-works
+   cd S1
    ```
 3. **Explore the contents:**
    - The repository is organized into folders for each lab subject: ADS, WEB, and Python.
