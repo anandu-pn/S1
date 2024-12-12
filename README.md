@@ -24,7 +24,7 @@ To get started with this repository, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/s1-college-lab-works.git
+   git clone https://github.com/tvmcoder/S1.git
    ```
 2. **Navigate to the repository directory:**
    ```bash
@@ -94,7 +94,11 @@ We welcome contributions from students and instructors. If you would like to con
 6. **Create a pull request:**
    - Go to the original repository and click the "New Pull Request" button.
 
+Please note that not all fork and contribution requests will be accepted. Contributions will be reviewed and accepted based on their relevance and quality.
 ## License
 
 This repository is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for more information.
  :)
+
+## Follow Me
+If you find this repository helpful, please consider following me on GitHub @tvmcoder and @anandu-pn for more updates and projects!
