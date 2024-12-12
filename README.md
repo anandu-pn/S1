@@ -98,7 +98,13 @@ Please note that not all fork and contribution requests will be accepted. Contri
 ## License
 
 This repository is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for more information.
- :)
+
 
 ## Follow Me
-If you find this repository helpful, please consider following me on GitHub @tvmcoder and @anandu-pn for more updates and projects!
+
+If you find this repository helpful, please consider following me on GitHub for more updates and projects!
+
+[Follow me on GitHub](https://github.com/tvmcoder)
+
+[Follow me on GitHub](https://github.com/anandu-pn)
+
