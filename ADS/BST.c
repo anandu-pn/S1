@@ -50,7 +50,6 @@ void createNode(struct node ** root){
         }
     }
 }
-
 void search(struct node ** root){
     struct node * current = *root;
     int z;
@@ -121,12 +120,6 @@ void Delete(struct node ** root){
             else { 
                 succePrv->right = successor->right; 
                 }
-            /*if(successor->right!=NULL){
-                succePrv->left=successor->right;
-            }
-            else{
-                succePrv->left=NULL;
-            }*/
             free(successor);
         }
         //if only have left child
@@ -233,12 +226,6 @@ int main(){
             case(4):
                 search(&root);
                 break;
-          /*case(6):
-                //min(&root);
-                break;
-            case(7):
-                //max(&root);
-                break;*/
             case(8):
                 printf("\nProgram existed");
                 return 0;
