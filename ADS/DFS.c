@@ -1,4 +1,5 @@
 #include<stdio.h>
+void dfs(int n,int g[n][n],int v[],int source);
 void dfs(int n,int g[n][n],int v[],int source){
     printf("%d-> ",source);
     v[source]=1;
