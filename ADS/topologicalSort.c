@@ -23,7 +23,7 @@ void topologicalSort(int n,int g[n][n]){
             topdfs(i,n,g,visited,stack,&top);
         }
     }
-    printf("\nTopological sort is:");
+    printf("\nTopological sort is: ");
     for(i=top-1;i>=0;i--){
         printf("%d ->",stack[i]);
     }
