@@ -7,7 +7,7 @@ void topdfs(int k,int n,int g[n][n],int visited[n],int stack[n],int *top){
             topdfs(i,n,g,visited,stack,top);
         }
     }
-    //he *top variable is incremented after the value v is assigned to stack[*top]. This is known as the post-increment operation.
+    //he *top variable is incremented after the value v is assigned to stack[*top]. This is known as the post-increment operation. new
     stack[(*top)++]=k;
 }
 void topologicalSort(int n,int g[n][n]){
