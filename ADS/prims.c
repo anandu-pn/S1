@@ -13,19 +13,20 @@ void main(){
         for(int j=0;j<n;j++){
             printf("Enter the weight of edge %d %d: ",i,j);
             scanf("%d",&g[i][j]);
-            if (!g[i][j])
+            if (g[i][j]==0)
+            //giving max values to all zero weight so as to ignore it
                g[i][j] = INT_MAX;
     }
 }
     int e=0,cost=0;
-    visit[0] = 1; // Starting with the first node
+    visit[0] = 1; // Starting with the first node and also here visit is used to check if vertices is already visted or not
     while(e<n-1){
         int min, u, v;
+        min=INT_MAX;
         for(int i=0;i<n;i++){
-            min=INT_MAX;
             if(visit[i]){
             for(int j=0;j<n;j++){
-                if(g[i][i] < min && visit[j]==0){
+                if(g[i][j] < min && visit[j]==0){
                     min = g[i][j];
                     u = i;
                     v = j;
