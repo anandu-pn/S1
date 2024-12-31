@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        function test(){
+        function reset(){
             alert("reset your self");
+            var form=document.getElementById("form1").value;
+            form.reset();
+            
         }
-        let nameFormate= /^[a-zA-Z]+\s+/;
-        let ageFormate=/^\d{1,3}$/;
-        let passFormate=/^[a-zA-Z\d!@#$%^&*()_-+=]{8,}$/;
-        let emailFormate=/^[^@\s]+@[^\s@]+\.+[^@\s]/;
-        let phoneFormate=/^\d{10}$/;
+        let nameFormat= /^[a-zA-Z]+\s+/;
+        let ageFormat=/^\d{1,3}$/;
+        let passFormat=/^[a-zA-Z\d!@#$%^&*()_\-+=]{8,20}$/;
+        let emailFormat=/^[^@\s]+@[^\s@]+\.+[^@\s]/;
+        let phoneFormat=/^\d{10}$/;
         function validate(event){
             event.preventDefault(); // Prevent form submission
             var name=document.getElementById('name').value;
@@ -61,46 +64,37 @@
     </script>
 </head>
 <body><center>
-    <h1><UL>FORM DESIGN</UL></h1>
-    <form onsubmit="return validate(event)" action="" ><table border="2px">
+    <h1>FORM DESIGN</h1>
+    <form onsubmit="return validate(event)" action="" id="form1"><table border="2px">
         <tr>
             <th colspan="2"><H2>REGISTRATION FORM</H2></th>
         </tr>
         <TR>
-            <td><label><h3>name</h3></label></td>
-            <td><input type="text" name="" id="name"></td>
+            <label for="name"><td><h3>name</h3></td>
+            <td><input type="text" name="" id="name" placeholder="Enter yout name" autocomplete="name"></td></label>
         </TR>
-        <td><label><h3>Age</h3></label></td>
+        <label for="age"><td><h3>Age</h3></td>
         <td>
-            <input type="text" id="age">
-        <td>
+            <input type="text" id="age" placeholder="Enter the age">
+        </td></label>
           
         
         <TR>
-            <td><label><h3>Password</h3></label></td>
-            <td><input type="text" name="" id="pass"></td>
+            <label for="pass"><td><h3>Password</h3></td>
+            <td><input type="password" name="" id="pass" placeholder="enter your password" autocomplete="new-password"></td></label>
         </TR>
-        
-        <!--<TR>
-            <td><label><h3>Answer of secuirity question</h3></label></td>
-            <td><input type="text" name="" id=""></td>
-        </TR>-->
         <TR>
-            <td><label><h3>Email ID</h3></label></td>
-            <td><input type="text" name="" id="email"></td>
+            <td><label for="email"><h3>Email ID</h3></td>
+            <td><input type="email" name="" id="email" placeholder="Enter email" autocomplete="email"></td></label>
         </TR>
 
         <TR>
-            <td><label><h3>phone no</h3></label></td>
-            <td><input type="text" id="phone"></td>
+            <label for="phone"><td><h3>phone no</h3></td>
+            <td><input type="text" id="phone" placeholder="Phone no" autocomplete="tel"></td></label>
         </TR>
-        <!--<TR>
-            <td><label><h3>Upload CV</h3></label></td>
-            <td><input type="file" name="" id=""></td>
-        </TR>-->
         <TR>
-            <td><button onclick="test()">Validate</button></td>
-            <td><input type="submit" name="" id=""><td>
+            <td><button type="button" onclick="reset()">Reset</button></td>
+            <td><input type="submit" name="" id="sub"></td>
         </TR>
     </table></form></center>
 </body>
