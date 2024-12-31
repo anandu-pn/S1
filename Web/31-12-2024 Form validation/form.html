@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function test(){
+            alert("reset your self");
+        }
+        let nameFormate= /^[a-zA-Z]+\s+/;
+        let ageFormate=/^\d{3}+/;
+        let passFormate=/^[a-zA-Z\d!@#$%^&*()_-+=]{8,}/;
+        let emailFormate=/^[^@\s]+@[^\s@]+\.+[^@\s]/;
+        let phoneFormate=/^\d{10}+/;
+        function validate(event){
+            event.preventDefault(); // Prevent form submission
+            var name=document.getElementById('name').value;
+            var age=document.getElementById('age').value;
+            var pass=document.getElementById('pass').value;
+            var email=document.getElementById('email').value;
+            var phone=document.getElementById('phone').value;
+            if(name=="" || age=="" || pass=="" || email==""|| phone==""){
+                alert("please fill all fields");
+                return false;
+            }
+            if (!nameFormat.test(name)) { 
+                alert("Invalid name format"); 
+                return false; 
+            } 
+            if (!ageFormat.test(age)) { 
+                alert("Invalid age format"); 
+                return false; 
+            }
+            if (!passFormat.test(pass)) { 
+                alert("Invalid password format"); 
+                return false; 
+            } 
+            if (!emailFormat.test(email)) { 
+                alert("Invalid email format"); 
+                return false; 
+            } 
+            if (!phoneFormat.test(phone)) { 
+                alert("Invalid phone number format"); 
+                return false; 
+            }
+            else{
+                alert("Validation successful!"); 
+                return true;
+            } 
+            
+            /*if(nameFormate.test(name)){
+                alert("hi");
+            }
+            else{
+                alert("hello");
+            }*/
+            
+
+        }
+    </script>
+</head>
+<body><center>
+    <h1><UL>FORM DESIGN</UL></h1>
+    <form onsubmit="return validate(event)" action="" ><table border="2px">
+        <tr>
+            <th colspan="2"><H2>REGISTRATION FORM</H2></th>
+        </tr>
+        <TR>
+            <td><label><h3>name</h3></label></td>
+            <td><input type="text" name="" id="name"></td>
+        </TR>
+        <td><label><h3>Age</h3></label></td>
+        <td>
+            <input type="text" id="age">
+        <td>
+          
+        
+        <TR>
+            <td><label><h3>Password</h3></label></td>
+            <td><input type="text" name="" id="pass"></td>
+        </TR>
+        
+        <!--<TR>
+            <td><label><h3>Answer of secuirity question</h3></label></td>
+            <td><input type="text" name="" id=""></td>
+        </TR>-->
+        <TR>
+            <td><label><h3>Email ID</h3></label></td>
+            <td><input type="text" name="" id="email"></td>
+        </TR>
+
+        <TR>
+            <td><label><h3>phone no</h3></label></td>
+            <td><input type="text" id="phone"></td>
+        </TR>
+        <!--<TR>
+            <td><label><h3>Upload CV</h3></label></td>
+            <td><input type="file" name="" id=""></td>
+        </TR>-->
+        <TR>
+            <td><button onclick="test()">Validate</button></td>
+            <td><input type="submit" name="" id=""><td>
+        </TR>
+    </table></form></center>
+</body>
+</html>
