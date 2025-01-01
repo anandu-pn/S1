@@ -9,7 +9,7 @@ int main(){
     scanf("%d",&e);
     for(i=0;i<e;e++){
         printf("\nEnter the edge %d",i);
-        scanf("")
+        scanf("");
     }
 
 return 0;
