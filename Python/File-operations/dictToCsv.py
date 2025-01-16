@@ -11,6 +11,7 @@ writer.writerow(columns)#write first column
 #The * operator is used to unpack the values, so each list of values is passed as a separate argument to zip.
 #zip then combines these lists element-wise, creating tuples where each tuple contains one element from each list.
 rows=zip(*dict.values())
+print(next(rows))
 for row in rows:
     writer.writerow(row)
 file.close()

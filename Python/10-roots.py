@@ -15,3 +15,4 @@ else:
        r=-b/(2*a)
        i=sqrt(-d)/(2*a)
        print("the roots of the equation are",r,"+",i,"i","and",r,"-",i,"i")
+       
